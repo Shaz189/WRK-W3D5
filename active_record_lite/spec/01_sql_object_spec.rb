@@ -1,6 +1,7 @@
 require '01_sql_object'
 require 'db_connection'
 require 'securerandom'
+require 'byebug'
 
 describe SQLObject do
   before(:each) { DBConnection.reset }
@@ -105,6 +106,7 @@ describe SQLObject do
       it 'created getter methods read from attributes hash' do
         c = Cat.new
         c.instance_variable_set(:@attributes, {name: "Nick Diaz"})
+        
         expect(c.name).to eq 'Nick Diaz'
       end
 
